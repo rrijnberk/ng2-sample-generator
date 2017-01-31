@@ -4,7 +4,7 @@ const config = require('../resource/app/test/test.sample.json');
 
 const target = 'tmp/docs/';
 
-import {SampleFactory} from '../src/sample-generator';
+import {SampleFactory} from '../src/generators/sample-generator';
 
 // Cleanup first
 spawn('rm', ['-rf', target]);

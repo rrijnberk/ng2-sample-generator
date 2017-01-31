@@ -1,10 +1,11 @@
-const fsup = require('./file-support');
+const fsup = require('./support/file-support');
 const defaults = {
     configFile: 'sgconfig.json'
 };
 const globalConfig = {};
-const rgen = require('./routes-generator');
-const sgen = require('./sample-generator');
+const mgen = require('./generators/module-generator');
+const rgen = require('./generators/routes-generator');
+const sgen = require('./generators/sample-generator');
 
 let appConfig = {};
 
@@ -31,6 +32,11 @@ function initializeGlobalConfig() {
 
 function override(key, value) {
     if(value) { globalConfig[key] = value; }
+}
+
+function parseModule(components) {
+    mgen.generate.bind(appConfig)(components);
+    return components;
 }
 
 function parseRoutes(components) {
@@ -65,10 +71,17 @@ function generateSampleApp() {
         .then(parseSamples)
         .then(reduce)
         .then(parseRoutes)
+        .then(parseModule)
         // .then((configs) => {
         //     configs.map(console.log)
         // })
     ;
+
+    fsup.copy('src/files/sample.component.ts',
+        appConfig.dest
+            .concat('/')
+            .replace('//', '/')
+            .concat('sample.component.ts'));
 }
 
 export {

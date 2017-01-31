@@ -5,6 +5,10 @@ const regex = {
     pathDirs: /(.*?)\//g
 };
 
+function copy(source, target) {
+    fs.createReadStream(source).pipe(fs.createWriteStream(target));
+}
+
 function ensureDirExists(target) {
     let workPath = path.resolve('');
     getMatches(regex.pathDirs, target)
@@ -68,6 +72,7 @@ function writeFile(target, content, prefix = 'tmp/') {
 }
 
 export {
+    copy,
     loadConfig,
     readFile,
     scanFiles,

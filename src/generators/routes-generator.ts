@@ -1,4 +1,4 @@
-const fileSupport = require('./file-support');
+const fileSupport = require('./../support/file-support');
 
 function generateImports(components) {
     return components.map((component) => {

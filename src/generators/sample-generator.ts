@@ -1,4 +1,4 @@
-const fileSupport = require('./file-support');
+const fileSupport = require('./../support/file-support');
 
 const regex = {
     array: /Array<(.*)>/,
