@@ -1,0 +1,124 @@
+{
+  "samples": [
+    {
+      "default": {
+        "meta": {
+          "component": "RRTestComponent",
+          "module": "TestModule",
+          "ngSelector": "rr-test"
+        },
+        "properties": [
+          {
+            "type": "string",
+            "name": "message",
+            "value": "from angular2 sample generator"
+          },
+          {
+            "type": "Array<string>",
+            "name": "fruits",
+            "value": [
+              "Strawberry",
+              "Orange",
+              "Banana",
+              "Kiwi"
+            ]
+          },
+          {
+            "type": "Array<Number>",
+            "name": "numbers",
+            "value": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "type": "Array<any>",
+            "name": "object",
+            "value": [
+              {
+                "name": "Jeff",
+                "lastName": "Foxworthy",
+                "age": 45
+              },
+              {
+                "name": "Bill",
+                "lastName": "Ingval"
+              },
+              {
+                "name": "Ron",
+                "lastName": "White"
+              },
+              {
+                "name": "Larry",
+                "lastName": "the Cableguy"
+              }
+            ]
+          }
+        ],
+        "definition": "<rr-test (message)=\"message\"></test>"
+      }
+    }, {
+      "fancy": {
+        "meta": {
+          "component": "RRTestComponent",
+          "module": "TestModule",
+          "ngSelector": "rr-test"
+        },
+        "properties": [
+          {
+            "type": "string",
+            "name": "message",
+            "value": "from angular2 sample generator"
+          },
+          {
+            "type": "Array<string>",
+            "name": "fruits",
+            "value": [
+              "Strawberry",
+              "Orange",
+              "Banana",
+              "Kiwi"
+            ]
+          },
+          {
+            "type": "Array<Number>",
+            "name": "numbers",
+            "value": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "type": "Array<any>",
+            "name": "object",
+            "value": [
+              {
+                "name": "Jeff",
+                "lastName": "Foxworthy"
+              },
+              {
+                "name": "Bill",
+                "lastName": "Ingval"
+              },
+              {
+                "name": "Ron",
+                "lastName": "White"
+              },
+              {
+                "name": "Larry",
+                "lastName": "the Cableguy"
+              }
+            ]
+          }
+        ],
+        "definition": "<rr-test (fruits)=\"fruits\" (people)=\"object\"></test>"
+      }
+    }
+  ]
+}

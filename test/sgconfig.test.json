@@ -1,0 +1,10 @@
+{
+  "src": {
+    "cwd": "resource/",
+    "files": [
+      "**/test/*.sample.json",
+      "**/demo/*.sample.json"
+    ]
+  },
+  "dest": "tmp/samples"
+}

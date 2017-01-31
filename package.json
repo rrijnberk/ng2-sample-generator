@@ -1,0 +1,20 @@
+{
+  "name": "ng2-sample-generator",
+  "version": "1.0.0",
+  "description": "An angular2 sample generator for JSON configurations.",
+  "main": "src/sample-generator.js",
+  "bin": {
+    "samplegen": "bin/samplegen.js"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "samplegen -c test/sgconfig.test.json"
+  },
+  "author": "R.Rijnberk",
+  "license": "MIT",
+  "dependencies": {
+    "shelljs": "^0.7.6"
+  }
+}
