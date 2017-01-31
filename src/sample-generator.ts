@@ -24,7 +24,7 @@ const toAssignments = (properties: Array<any>) => {
 };
 
 const parseValue = (property: any): string => {
-    switch(true) {
+    switch (true) {
         case regex.array.test(property.type):
             return arrayConverter(property);
         case property.type === "string":
@@ -36,7 +36,7 @@ const parseValue = (property: any): string => {
 const arrayConverter = (property) => {
     let array = [],
         type = regex.array.exec(property.type)[1];
-    switch(type) {
+    switch (type) {
         case 'Number':
             array.push(property.value);
             break;
@@ -70,32 +70,39 @@ function generateClassName(config) {
     return config;
 }
 
+
 function generateSample(config) {
+    let className = `${config.meta.component}_${config.className}`;
     return {
-        name: config.name,
-        path: regex.path.exec(config.path)[0],
+        component: config.meta.component,
         content: `import {Component} from "@angular/core";
 
 @Component({
     selector: '${config.meta.ngSelector}-${config.name}',
     template: '${config.definition}'
 })
-export class ${config.meta.component}_${config.className} {
+export class ${className} {
     ${toDeclarations(config.properties) || ''}
     constructor() {${toAssignments(config.properties)}}
 }
-`
+`,
+        name: className,
+        path: regex.path.exec(config.path)[0]
     };
 }
 
 function write(config) {
     let file = config.path.concat(`${config.name}.sample.ts`);
     fileSupport.writeFile(file, config.content, this.dest);
-    return config;
+    return {
+        component: config.name,
+        route: file.replace('.sample.ts', ''),
+        file
+    };
 }
 
 function generate(config) {
-    config.samples
+    return config.samples
         .map(expand)
         .map(bindPath.bind(config.path))
         .map(generateClassName)

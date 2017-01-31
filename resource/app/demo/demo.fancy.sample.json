@@ -3,7 +3,7 @@
     {
       "fancy": {
         "meta": {
-          "component": "RRTestComponent",
+          "component": "RRDemoComponent",
           "module": "TestModule",
           "ngSelector": "rr-test"
         },
